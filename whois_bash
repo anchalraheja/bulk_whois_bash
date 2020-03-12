@@ -1,0 +1,5 @@
+file="domain_list.txt"
+while IFS= read -r line
+do
+	echo "$line",$(whois $line | grep -i -m 1 "organization")
+done < "$file"
